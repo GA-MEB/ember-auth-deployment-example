@@ -2,7 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   flashMessages: Ember.inject.service(),
-
+  model() {
+    return this.store.findAll('organization');
+  },
   actions: {
     signOut () {
       this.get('auth').signOut()
